@@ -1,4 +1,4 @@
-name: My First GitHub Action
+name: Jobs and Steps Demo
 
 on:
   push:
@@ -13,11 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print message
-        run: echo "Hello Alok! GitHub Actions is working."
-
-      - name: Show current directory
-        run: pwd
+      - name: Say Hello
+        run: echo "Hello from Job 1"
 
       - name: Show files
         run: ls -la
+
+  system-info:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show operating system
+        run: uname -a
+
+      - name: Show runner
+        run: echo "This is Job 2"
