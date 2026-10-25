@@ -9,12 +9,21 @@ jobs:
   hello:
     runs-on: ubuntu-latest
 
+    env:
+      APP_NAME: GitHub-Demo
+      ENVIRONMENT: DEV
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Say Hello
-        run: echo "Hello from Job 1"
+        run: echo "Hello from $APP_NAME"
+
+      - name: Show environment
+        run: |
+          echo "Application: $APP_NAME"
+          echo "Environment: $ENVIRONMENT"
 
       - name: Show files
         run: ls -la
